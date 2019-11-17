@@ -79,7 +79,7 @@ spring:
             multi-statement-allow: true
         stat:
           log-slow-sql: true
-          slow-sql-millis: 5
+          slow-sql-millis: 300
           merge-sql: true
           enabled: true
           connection-stack-trace-enable: true
