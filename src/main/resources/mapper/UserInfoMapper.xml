@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sinbad.boot.druid.monitor.mapper.UserInfoMapper">
+  <resultMap id="BaseResultMap" type="com.sinbad.boot.druid.monitor.entity.UserInfo">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="birthday" jdbcType="TIMESTAMP" property="birthday" />
+    <result column="height" jdbcType="DOUBLE" property="height" />
+    <result column="sex" jdbcType="BIT" property="sex" />
+    <result column="age" jdbcType="INTEGER" property="age" />
+    <result column="if_married" jdbcType="INTEGER" property="ifMarried" />
+    <result column="education" jdbcType="INTEGER" property="education" />
+    <result column="position" jdbcType="VARCHAR" property="position" />
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    id, username, birthday, height, sex, age, if_married, education, position
+  </sql>
+
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_user_info
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from t_user_info
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+
+  <insert id="insert" parameterType="com.sinbad.boot.druid.monitor.entity.UserInfo">
+    insert into t_user_info (id, username, birthday, 
+      height, sex, age, if_married, 
+      education, position)
+    values (#{id,jdbcType=BIGINT}, #{username,jdbcType=VARCHAR}, #{birthday,jdbcType=TIMESTAMP}, 
+      #{height,jdbcType=DOUBLE}, #{sex,jdbcType=BIT}, #{age,jdbcType=INTEGER}, #{ifMarried,jdbcType=INTEGER}, 
+      #{education,jdbcType=INTEGER}, #{position,jdbcType=VARCHAR})
+  </insert>
+
+  <insert id="insertSelective" parameterType="com.sinbad.boot.druid.monitor.entity.UserInfo">
+    insert into t_user_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="username != null">
+        username,
+      </if>
+      <if test="birthday != null">
+        birthday,
+      </if>
+      <if test="height != null">
+        height,
+      </if>
+      <if test="sex != null">
+        sex,
+      </if>
+      <if test="age != null">
+        age,
+      </if>
+      <if test="ifMarried != null">
+        if_married,
+      </if>
+      <if test="education != null">
+        education,
+      </if>
+      <if test="position != null">
+        position,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="birthday != null">
+        #{birthday,jdbcType=TIMESTAMP},
+      </if>
+      <if test="height != null">
+        #{height,jdbcType=DOUBLE},
+      </if>
+      <if test="sex != null">
+        #{sex,jdbcType=BIT},
+      </if>
+      <if test="age != null">
+        #{age,jdbcType=INTEGER},
+      </if>
+      <if test="ifMarried != null">
+        #{ifMarried,jdbcType=INTEGER},
+      </if>
+      <if test="education != null">
+        #{education,jdbcType=INTEGER},
+      </if>
+      <if test="position != null">
+        #{position,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+
+  <update id="updateByPrimaryKeySelective" parameterType="com.sinbad.boot.druid.monitor.entity.UserInfo">
+    update t_user_info
+    <set>
+      <if test="username != null">
+        username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="birthday != null">
+        birthday = #{birthday,jdbcType=TIMESTAMP},
+      </if>
+      <if test="height != null">
+        height = #{height,jdbcType=DOUBLE},
+      </if>
+      <if test="sex != null">
+        sex = #{sex,jdbcType=BIT},
+      </if>
+      <if test="age != null">
+        age = #{age,jdbcType=INTEGER},
+      </if>
+      <if test="ifMarried != null">
+        if_married = #{ifMarried,jdbcType=INTEGER},
+      </if>
+      <if test="education != null">
+        education = #{education,jdbcType=INTEGER},
+      </if>
+      <if test="position != null">
+        position = #{position,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+  <update id="updateByPrimaryKey" parameterType="com.sinbad.boot.druid.monitor.entity.UserInfo">
+    update t_user_info
+    set username = #{username,jdbcType=VARCHAR},
+      birthday = #{birthday,jdbcType=TIMESTAMP},
+      height = #{height,jdbcType=DOUBLE},
+      sex = #{sex,jdbcType=BIT},
+      age = #{age,jdbcType=INTEGER},
+      if_married = #{ifMarried,jdbcType=INTEGER},
+      education = #{education,jdbcType=INTEGER},
+      position = #{position,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+
+</mapper>
