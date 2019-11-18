@@ -16,7 +16,4 @@ public class DemoDruidMonitorApplication {
         SpringApplication.run(DemoDruidMonitorApplication.class, args);
     }
 
-//dsds s
-    //sds
-
 }
