@@ -11,7 +11,4 @@ public interface UserInfoMapper {
 
     UserInfo selectByPrimaryKey(Long id);
 
-    int updateByPrimaryKeySelective(UserInfo record);
-
-    int updateByPrimaryKey(UserInfo record);
 }

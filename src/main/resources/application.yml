@@ -38,7 +38,7 @@ spring:
     druid:
       url: jdbc:mysql://127.0.0.1:3306/mydatabase?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai
       password: 123456
-      username: root
+      username: sinbad
       driver-class-name: com.mysql.cj.jdbc.Driver
       #初始化时建立物理连接的个数。初始化发生在显示调用init方法，或者第一次getConnection时
       initial-size: 5
@@ -118,6 +118,6 @@ mybatis:
 logging:
   config: classpath:logconfig/logback.xml
   file:
-    path: /home/log/boot-druid-monitor
+    path: /home/sinbad/work/workspace/log/boot-druid-monitor
 
 
